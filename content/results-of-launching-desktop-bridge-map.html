@@ -1,0 +1,31 @@
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1', {packages: ['geochart']});
+
+    function drawVisualization() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Sales'],
+        ['Germany', 2],
+        ['United States', 4],
+        ['Brazil', 1],
+        ['Canada', 8],
+        ['Russia', 1],
+        ['South Africa', 2],
+        ['United Kingdom', 1],
+        ['Italy', 1],
+        ['Hungary', 1],
+        ['Malaysia', 1],
+        ['Austria', 1],
+        ['Japan', 1],
+        ['Argentina', 1]
+      ]);
+    
+      var geochart = new google.visualization.GeoChart(
+          document.getElementById('visualization'));
+      geochart.draw(data, {width: 555, height: 400});
+    }
+    
+
+    google.setOnLoadCallback(drawVisualization);
+  </script>
+  <div id="visualization" style="text-align: center; align: center;"></div>
