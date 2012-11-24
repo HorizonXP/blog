@@ -12,7 +12,7 @@ DEFAULT_LANG = u'en'
 
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
-
+TYPOGRIFY = True
 STATIC_PATHS = ['images', 'other_files']
 
 # Blogroll
