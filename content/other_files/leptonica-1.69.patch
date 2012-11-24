@@ -1,0 +1,44 @@
+*** leptonica-1.69-old/leptonica-1.69/src/sarray.c	2012-01-22 13:29:15.000000000 -0500
+--- leptonica-1.69/src/sarray.c	2012-11-22 13:03:40.954202699 -0500
+***************
+*** 131,136 ****
+--- 131,137 ----
+  #include <string.h>
+  #ifndef _WIN32
+  #include <dirent.h>     /* unix only */
++ #include <sys/stat.h>
+  #endif  /* ! _WIN32 */
+  #include "allheaders.h"
+  
+***************
+*** 1831,1836 ****
+--- 1832,1838 ----
+  SARRAY         *safiles;
+  DIR            *pdir;
+  struct dirent  *pdirentry;
++ struct stat s;
+  
+      PROCNAME("getFilenamesInDirectory");
+  
+***************
+*** 1846,1855 ****
+          /* It's nice to ignore directories.  For this it is necessary to
+           * define _BSD_SOURCE in the CC command, because the DT_DIR
+           * flag is non-standard.  */
+! #if !defined(__SOLARIS__)
+!         if (pdirentry->d_type == DT_DIR)
+              continue;
+- #endif
+  
+              /* Filter out "." and ".." if they're passed through */
+          name = pdirentry->d_name;
+--- 1848,1856 ----
+          /* It's nice to ignore directories.  For this it is necessary to
+           * define _BSD_SOURCE in the CC command, because the DT_DIR
+           * flag is non-standard.  */
+!         stat(pdirentry->d_name, &s);
+!         if (S_ISDIR(s.st_mode))
+              continue;
+  
+              /* Filter out "." and ".." if they're passed through */
+          name = pdirentry->d_name;

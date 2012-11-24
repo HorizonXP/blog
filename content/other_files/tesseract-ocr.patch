@@ -1,0 +1,24 @@
+Index: viewer/svutil.h
+===================================================================
+--- tesseract-ocr/viewer/svutil.h	(revision 808)
++++ tesseract-ocr/viewer/svutil.h	(working copy)
+@@ -39,6 +39,7 @@
+ #else
+ #include <pthread.h>
+ #include <semaphore.h>
++#include <sys/time.h>
+ #endif
+ 
+ #include <string>
+Index: configure.ac
+===================================================================
+--- tesseract-ocr/configure.ac	(revision 808)
++++ tesseract-ocr/configure.ac	(working copy)
+@@ -415,6 +415,7 @@
+ if test "$have_lept" = yes ; then
+   AC_MSG_RESULT(yes)
+   AC_CHECK_LIB(lept,pixCreate,[], AC_MSG_ERROR([leptonica library missing]))
++  AC_CHECK_LIB(socket,send,[], AC_MSG_ERROR([socket library missing]))
+ else
+   AC_MSG_ERROR([leptonica not found])
+ fi
