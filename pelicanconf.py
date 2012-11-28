@@ -4,7 +4,7 @@
 AUTHOR = u'Xitij Ritesh Patel'
 SITENAME = u"Xitij Ritesh Patel"
 SITEURL = 'http://www.xitijpatel.com'
-THEME = "tuxlite_tbs"
+THEME = "xrpblog"
 
 TIMEZONE = 'America/Toronto'
 
