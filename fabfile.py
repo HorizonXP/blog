@@ -82,7 +82,7 @@ def publish():
     """Generates and publish the new site in Amazon S3"""
     master_branch = "master"
     publish_branch = "s3-pages"
-    bucket = "xrpblog"
+    bucket = "xitijpatel.com"
     remote = "origin"
 
     # Push original changes to master
