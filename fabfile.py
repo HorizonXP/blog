@@ -95,7 +95,7 @@ def publish():
     # git_merge_branch(master_branch)
 
     # Generate the html
-    generate(ABS_ROOT_DIR)
+    generate(ABS_OUTPUT_PATH)
 
     # Commit changes
     # now = time.strftime("%d %b %Y %H:%M:%S", time.localtime())
