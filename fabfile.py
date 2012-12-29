@@ -68,6 +68,10 @@ def s3_push(bucket):
         local("s3cmd sync . s3://{0}".format(bucket))
 
 
+def git_push(remote, branch):
+    """Pushes the git changes to git remote repo"""
+    local("git push {0} {1}".format(remote, branch))
+
 def git_commit_all(msg):
     """Commits all the changes"""
     local("git add .")
@@ -82,7 +86,7 @@ def publish():
     remote = "origin"
 
     # Push original changes to master
-    push(remote, master_branch)
+    git_push(remote, master_branch)
 
     # Change to gh-pages branch
     # git_change_branch(publish_branch)
