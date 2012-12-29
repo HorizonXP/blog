@@ -65,7 +65,7 @@ def git_merge_branch(branch):
 def s3_push(bucket):
     """Pushes the git changes to the S3 bucket."""
     with lcd(ABS_OUTPUT_PATH):
-        local("s3cmd sync . s3://{0}".format(bucket))
+        local("s3cmd --delete-removed sync . s3://{0}".format(bucket))
 
 
 def git_push(remote, branch):
