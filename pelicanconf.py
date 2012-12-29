@@ -10,7 +10,7 @@ TIMEZONE = 'America/Toronto'
 
 DEFAULT_LANG = u'en'
 
-ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 TYPOGRIFY = True
 PATH = 'content'
