@@ -122,5 +122,5 @@ I've left on it, as I cannot guarantee future functionality.
 .. _TestLab: https://www.kisailabs.com/beta/
 .. _@BlackBerryDev: https://twitter.com/#!/BlackBerryDev
 .. _countdown at Crackberry in their forums: http://forums.crackberry.com/playbook-apps-games-f243/official-desktop-bridge-cb-thread-726633/
-.. _three 5-star reviews: http://www.xitijpatel.com/wp-content/uploads/2012/06/reviews.png
+.. _three 5-star reviews: http://www.xitijpatel.com/static/images/ResultsDB_Reviews.jpg
 .. _link to the pirate site: http://www.ipmart-forum.com/showthread.php?768293-Desktop-Bridge

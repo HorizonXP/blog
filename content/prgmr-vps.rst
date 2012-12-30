@@ -5,7 +5,7 @@ Signing up with prgmr
 :category: Engineering
 :tags: development, prgmr, python, taab, ubuntu, vps
 
-.. image:: images/prgmr_Terminal.png
+.. image:: images/prgmr_Terminal.jpg
    :align: center
 
 I've used several different VPS providers in the past. My
@@ -50,8 +50,5 @@ far, the experience has been great. If you need some hand holding, go
 with Linode. If you know what you're doing and just need something
 cheap, I can wholeheartedly recommend prgmr.
 
-.. _|image1|: http://www.xitijpatel.com/wp-content/uploads/2012/06/arcturus-terminal.png
 .. _`http://www.linode.com/?r=1a8a406431597342d4c3a51b45c2c8eb76fd16c8`: http://www.linode.com/?r=1a8a406431597342d4c3a51b45c2c8eb76fd16c8
 
-.. |image0| image:: http://www.xitijpatel.com/wp-content/uploads/2012/06/arcturus-terminal.png
-.. |image1| image:: http://www.xitijpatel.com/wp-content/uploads/2012/06/arcturus-terminal.png
