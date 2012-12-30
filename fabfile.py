@@ -1,7 +1,7 @@
 import os
 import time
 
-from fabric.api import local, lcd, settings
+from fabric.api import local, lcd, settings, run
 from fabric.utils import puts
 
 #If no local_settings.py then settings.py
@@ -65,8 +65,49 @@ def git_merge_branch(branch):
 def s3_push(bucket):
     """Pushes the git changes to the S3 bucket."""
     with lcd(ABS_OUTPUT_PATH):
-        local("s3cmd --delete-removed sync . s3://{0}".format(bucket))
+        local("s3cmd --delete-removed --cf-invalidate --add-header='Content-Encoding: gzip' sync . s3://{0}".format(bucket))
 
+def dirEntries(dir_name, subdir, *args):
+    '''Return a list of file names found in directory 'dir_name'
+    If 'subdir' is True, recursively access subdirectories under 'dir_name'.
+    Additional arguments, if any, are file extensions to match filenames. Matched
+        file names are added to the list.
+    If there are no additional arguments, all files found in the directory are
+        added to the list.
+    Example usage: fileList = dirEntries(r'H:\TEMP', False, 'txt', 'py')
+        Only files with 'txt' and 'py' extensions will be added to the list.
+    Example usage: fileList = dirEntries(r'H:\TEMP', True)
+        All files and all the files in subdirectories under H:\TEMP will be added
+        to the list.
+    '''
+    fileList = []
+    for file in os.listdir(dir_name):
+        dirfile = os.path.join(dir_name, file)
+        if os.path.isfile(dirfile):
+            if not args:
+                fileList.append(dirfile)
+            else:
+                if os.path.splitext(dirfile)[1][1:] in args:
+                    fileList.append(dirfile)
+        # recursively access file names in subdirectories
+        elif os.path.isdir(dirfile) and subdir:
+            print "Accessing directory:", dirfile
+            fileList.extend(dirEntries(dirfile, subdir, *args))
+    return fileList
+
+def minify():
+    """Minifies HTML, JS, and CSS in output directory."""
+    fileList = dirEntries(ABS_OUTPUT_PATH, True, 'html', 'css', 'js')
+    for thefile in fileList:
+        local("jitify --minify {0} > {0}".format(thefile))
+        local("gzip < {0} > {0}".format(thefile))
+    imgList = dirEntries(ABS_OUTPUT_PATH, True, 'png')
+    for theImg in imgList:
+        theNewImg = theImg.replace('.png', '.jpg')
+        local("convert {0} {1}".format(theImg, theNewImg))
+    imgList = dirEntries(ABS_OUTPUT_PATH, True, 'jpg')
+    for theImg in imgList:
+        local("mogify -compress JPEG -quality 6 {0}".format(theImg))
 
 def git_push(remote, branch):
     """Pushes the git changes to git remote repo"""
@@ -96,6 +137,7 @@ def publish():
 
     # Generate the html
     generate(ABS_OUTPUT_PATH)
+    minify()
 
     # Commit changes
     # now = time.strftime("%d %b %Y %H:%M:%S", time.localtime())
