@@ -65,7 +65,7 @@ def git_merge_branch(branch):
 def s3_push(bucket):
     """Pushes the git changes to the S3 bucket."""
     with lcd(ABS_OUTPUT_PATH):
-        local("s3cmd --delete-removed --add-header='Content-Encoding: gzip' sync . s3://{0}".format(bucket))
+        local("s3cmd --delete-removed --add-header='Content-Encoding: gzip' -M -m 'text/html' sync . s3://{0}".format(bucket))
 
 def dirEntries(dir_name, subdir, *args):
     '''Return a list of file names found in directory 'dir_name'
@@ -99,15 +99,26 @@ def minify():
     """Minifies HTML, JS, and CSS in output directory."""
     fileList = dirEntries(ABS_OUTPUT_PATH, True, 'html', 'css', 'js')
     for thefile in fileList:
-        local("jitify --minify {0} > {0}".format(thefile))
-        local("gzip < {0} > {0}".format(thefile))
+        local("jitify --minify {0} > {1}".format(thefile, thefile + ".min"))
+    for thefile in fileList:
+        local("mv {0} {1}".format(thefile + ".min", thefile))
+    fileList = dirEntries(os.path.join(ABS_OUTPUT_PATH, '2012'), True, 'html')
+    for thefile in fileList:
+        local("mv {0} {1}".format(thefile, thefile.replace('.html', '')))
     imgList = dirEntries(os.path.join(ABS_OUTPUT_PATH, 'static'), True, 'png')
     for theImg in imgList:
         theNewImg = theImg.replace('.png', '.jpg')
         local("convert {0} {1}".format(theImg, theNewImg))
+    for theImg in imgList:
+        local("rm {0}".format(theImg))
     imgList = dirEntries(os.path.join(ABS_OUTPUT_PATH, 'static'), True, 'jpg')
     for theImg in imgList:
-        local("mogrify -compress JPEG -quality 6 {0}".format(theImg))
+        local("mogrify -compress JPEG -quality 60 {0}".format(theImg))
+    fileList = dirEntries(ABS_OUTPUT_PATH, True)
+    for thefile in fileList:
+        local("gzip {0}".format('"' + thefile + '"'))
+    for thefile in fileList:
+        local("mv {0} {1}".format('"' + thefile + '.gz' + '"', '"' + thefile + '"'))
 
 def git_push(remote, branch):
     """Pushes the git changes to git remote repo"""
