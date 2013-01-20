@@ -17,6 +17,9 @@ PATH = 'content'
 STATIC_PATHS = ['images', 'other_files',]
 OUTPUT_PATH = 'output'
 
+FEED_DOMAIN=SITEURL
+FEED_ALL_RSS="feeds/all.rss.xml"
+
 # Blogroll
 LINKS =  (('Pulsecode Engineering', 'http://pulsecode.ca'),
           ('taab', 'http://taab.co'),)

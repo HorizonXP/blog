@@ -5,7 +5,7 @@ Signing up with prgmr
 :category: Engineering
 :tags: development, prgmr, python, taab, ubuntu, vps
 
-.. image:: images/prgmr_Terminal.jpg
+.. image:: |filename|/images/prgmr_Terminal.jpg
    :align: center
 
 I've used several different VPS providers in the past. My

@@ -5,7 +5,7 @@ A Desktop Bridge Too Far
 :category: Ventures
 :tags: blackberry, desktop bridge, PlayBook, pulsecode
 
-.. image:: images/BridgeTooFar_RejectionEmail.jpg
+.. image:: |filename|/images/BridgeTooFar_RejectionEmail.jpg
    :width: 100 %
 
 The image above is a screenshot of the e-mail I received at 11:30am on

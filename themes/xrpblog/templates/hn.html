@@ -1,0 +1,4 @@
+{% if HNSHARE_ENABLED %}
+<!-- Auto-detect URL of current page and title if necessary -->
+<a href="http://news.ycombinator.com/submit" class="hn-share-button" data-url="{{ SITEURL.replace("http://www.", "http://", 1) }}/{{ article.url }}">Vote on HN</a>
+{% endif %}

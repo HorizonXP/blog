@@ -5,7 +5,7 @@ Achievement Unlocked: M License
 :category: Motorcycles
 :tags: motorcycle
 
-.. image:: images/AchievementUnlocked_Dragon.jpg
+.. image:: |filename|/images/AchievementUnlocked_Dragon.jpg
    :width: 100 %
 
 After nearly 2 years of riding a motorcycle, I've finally obtained my M

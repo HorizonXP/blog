@@ -18,7 +18,7 @@ its current form. Moreover, I was hoping to leverage these efforts for
 the work I'm doing for taab. Ultimately, I'm hoping to get some sales of
 this app, and a prettier GUI would help.
 
-.. image:: images/PySidePB_SampleApp.jpg
+.. image:: |filename|/images/PySidePB_SampleApp.jpg
    :width: 100 %
 
 To that end, `Peter Hansen`_ and I got to work on porting

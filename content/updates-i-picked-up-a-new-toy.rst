@@ -28,7 +28,7 @@ finished, I’ll put up a post with more details about that.
 
 But the biggest update is that I picked up a new toy!
 
-.. image:: images/NewToy_Box.jpg
+.. image:: |filename|/images/NewToy_Box.jpg
    :width: 100 %
 
 I managed to find a brand-new, in box Canon EOS Rebel T2i for $590, with
@@ -61,13 +61,13 @@ later.
 
 Here’s some gratuitous test pictures of me playing with the camera.
 
-.. image:: images/NewToy_Test2.jpg
+.. image:: |filename|/images/NewToy_Test2.jpg
    :width: 100 %
 
-.. image:: images/NewToy_Test3.jpg
+.. image:: |filename|/images/NewToy_Test3.jpg
    :width: 100 %
 
-.. image:: images/NewToy_Test4.jpg
+.. image:: |filename|/images/NewToy_Test4.jpg
    :width: 100 %
 
 

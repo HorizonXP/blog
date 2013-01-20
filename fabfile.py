@@ -49,7 +49,7 @@ def serve():
     """Serves the site in the development webserver"""
     print(ABS_OUTPUT_PATH)
     with lcd(ABS_OUTPUT_PATH):
-        local("python -m SimpleHTTPServer")
+        local("python -m SimpleHTTPServer 8100")
 
 
 def git_change_branch(branch):
