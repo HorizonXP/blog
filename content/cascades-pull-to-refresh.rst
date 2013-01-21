@@ -6,7 +6,8 @@ How to Implement Pull to Refresh in BlackBerry 10 Cascades
 :tags: blackberry 10, cascades, blackberry-py, sample
 
 .. image:: |filename|/images/CascadesPullToRefreshSample.jpg
-   :width: 100 %
+   :align: center
+   :width: 50 %
 
 Over the last little bit, I've been doing a lot of work on some apps for
 BlackBerry 10.  `With January 30th fast approaching`_, I was coding like
@@ -60,13 +61,8 @@ a way to asynchronously load remote images.
 
 .. raw:: html
 
-    <div id="repo"></div>
-    <script>
-    jQuery(function($){
-      $('pre').vanGogh();
-      $('#repo').repo({ user: 'HorizonXP', name: 'blackberry-py-pulltorefresh' });
-    });
-    </script>
+    <div class="githubrepo" data-user="HorizonXP"
+    data-name="blackberry-py-pulltorefresh"></div>
 
 
 .. _With January 30th fast approaching: http://blogs.blackberry.com/2012/11/blackberry-10-launch-event/

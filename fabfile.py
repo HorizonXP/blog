@@ -20,13 +20,45 @@ ABS_OUTPUT_PATH = os.path.join(ABS_ROOT_DIR, OUTPUT_PATH)
 
 
 # Commands
-def generate(output=None):
+def generate(output=None, debug=None):
     """Generates the pelican static site"""
 
-    if not output:
-        cmd = "pelican -v -s {0}".format(ABS_SETTINGS_FILE)
+    if not debug:
+
+        #If no local_settings.py then settings.py
+        try:
+            from publishconf import OUTPUT_PATH
+            SETTINGS_FILE = "publishconf.py"
+        except ImportError:
+            from pelicanconf import OUTPUT_PATH
+            SETTINGS_FILE = "pelicanconf.py"
+        # Get directories
+        ABS_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+        ABS_SETTINGS_FILE = os.path.join(ABS_ROOT_DIR, SETTINGS_FILE)
+        ABS_OUTPUT_PATH = os.path.join(ABS_ROOT_DIR, OUTPUT_PATH)
+        if not output:
+            cmd = "pelican -v -s {0}".format(ABS_SETTINGS_FILE)
+        else:
+            cmd = "pelican -v -s {0} -o {1}".format(ABS_SETTINGS_FILE, output)
     else:
-        cmd = "pelican -v -s {0} -o {1}".format(ABS_SETTINGS_FILE, output)
+        #If no local_settings.py then settings.py
+        try:
+            from debugconf import OUTPUT_PATH
+            SETTINGS_FILE = "debugconf.py"
+        except ImportError:
+            from pelicanconf import OUTPUT_PATH
+            SETTINGS_FILE = "pelicanconf.py"
+
+        # Get directories
+        ABS_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+        ABS_SETTINGS_FILE = os.path.join(ABS_ROOT_DIR, SETTINGS_FILE)
+        ABS_OUTPUT_PATH = os.path.join(ABS_ROOT_DIR, OUTPUT_PATH)
+
+        if not output:
+            cmd = "pelican -v -s {0}".format(ABS_SETTINGS_FILE)
+        else:
+            cmd = "pelican -v -s {0} -o {1}".format(ABS_SETTINGS_FILE, output)
+
 
     local(cmd)
 
@@ -103,6 +135,9 @@ def minify():
     for thefile in fileList:
         local("mv {0} {1}".format(thefile + ".min", thefile))
     fileList = dirEntries(os.path.join(ABS_OUTPUT_PATH, '2012'), True, 'html')
+    for thefile in fileList:
+        local("mv {0} {1}".format(thefile, thefile.replace('.html', '')))
+    fileList = dirEntries(os.path.join(ABS_OUTPUT_PATH, '2013'), True, 'html')
     for thefile in fileList:
         local("mv {0} {1}".format(thefile, thefile.replace('.html', '')))
     imgList = dirEntries(os.path.join(ABS_OUTPUT_PATH, 'static'), True, 'png')

@@ -8,7 +8,8 @@ Google Chromebook and Ubuntu
 I got my Google ARM Chromebook! 
 
 .. image:: |filename|/images/Google-Chromebook.jpg
-   :width: 100 %
+   :align: center
+   :width: 75 %
 
 I was really excited for this device. I've been using a thick, heavy, and
 relatively underpowered Acer laptop for the last 5 years. I really wanted
