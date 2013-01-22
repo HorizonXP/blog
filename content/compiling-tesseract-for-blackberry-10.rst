@@ -133,5 +133,5 @@ If you found this useful, let me know! Would love to hear about the applications
 .. _tesseract-ocr: http://code.google.com/p/tesseract-ocr/
 .. _cross-compiling libraries for iOS: http://tinsuke.wordpress.com/2011/02/17/how-to-cross-compiling-libraries-for-ios-armv6armv7i386/
 .. _Leptonica sources: http://www.leptonica.com/download.html
-.. _patch for leptonica-1.69: other_files/leptonica-1.69.patch
-.. _patch for tesseract-ocr: other_files/tesseract-ocr.patch
+.. _patch for leptonica-1.69: |filename|other_files/leptonica-1.69.patch
+.. _patch for tesseract-ocr: |filename|other_files/tesseract-ocr.patch
